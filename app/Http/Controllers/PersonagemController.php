@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
-use App\Admin;
+use App\Personagem;
 use Builder;
 use Date;
 
-class AdminController extends Controller
+class PersonagemController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth:admin', ['only' => 'index', 'edit'])->except('logout');
+       
 
     }
     /**
@@ -25,9 +25,10 @@ class AdminController extends Controller
     public function index()
     {
  
-                
 
-        return view('admin.dashboard');
+        return view('admin.personagem.index');
+
+        
     }
 
     /**
@@ -37,7 +38,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.auth.register');
+        return view('admin.personagem.create');
     }
 
     /**
@@ -89,10 +90,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $admin = Admin::find($id); 
-        if (isset($admin)) {
-            return view('admin.editar', compact('admin'));
-        }
+
+        return view('admin.personagem.editar');
+        
     }
 
     /**
@@ -135,5 +135,13 @@ class AdminController extends Controller
     {
         //
     }
+
+    public function listarTodos()
+    {
+        
+    }
+
+    
+
     
 }

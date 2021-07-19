@@ -37,5 +37,10 @@ Route::prefix('admin')->group(function () {
     Route::get('login', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
     Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');
     Route::post('logout', 'Auth\Admin\LoginController@logout')->name('admin.auth.logout');
+
+    Route::get('personagem/', 'PersonagemController@index')->name('personagem.index');
+    Route::get('personagem/editar/{id}', 'PersonagemController@edit')->name('personagem.editar');
+    Route::post('personagem/{id}', 'PersonagemController@update')->name('personagem.update');
+    Route::get('personagem/{id}', 'PersonagemController@destroy')->name('personagem.delete');
  
   });

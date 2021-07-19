@@ -11,24 +11,15 @@
             <div class="row mb-20">
                 <div class="col-md-3">
                     <a href="{{url('personagens/charles')}}">
-                        <img src="{{asset('image/personagem1.png')}}" alt="" class="img-fluid rounded-circle img-personagens">
+                        <img src="{{asset('image/charles.jpeg')}}" alt="" class="img-fluid rounded-circle img-personagens">
                     </a>
                 </div>
                 <div class="col-md-3">
                     <a href="">
-                        <img src="{{asset('image/personagem2.png')}}" alt="" class="img-fluid rounded-circle img-personagens">
+                        <img src="{{asset('image/robo.jpeg')}}" alt="" class="img-fluid rounded-circle img-personagens">
                     </a>
                 </div>
-                <div class="col-md-3">
-                    <a href="">
-                        <img src="{{asset('image/personagem3.png')}}" alt="" class="img-fluid rounded-circle img-personagens">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="">
-                        <img src="{{asset('image/personagem4.png')}}" alt="" class="img-fluid rounded-circle img-personagens">
-                    </a>
-                </div>
+                
             </div>
     
         </div>
