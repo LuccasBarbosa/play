@@ -15,7 +15,7 @@ class Historia extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'texto', 'personagem', 'url_jogo',
     ];
 
     /**
@@ -24,6 +24,6 @@ class Historia extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+       
     ];
 }

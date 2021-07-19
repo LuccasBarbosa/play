@@ -15,6 +15,8 @@ class CreateEixoTable extends Migration
     {
         Schema::create('eixo', function (Blueprint $table) {
           $table->increments('id');
+          $table->integer('id_historia')->unsigned();
+          $table->foreign('id_historia')->references('id')->on('historia')->onDelete('cascade');
           $table->string('eixo');
         });
     }

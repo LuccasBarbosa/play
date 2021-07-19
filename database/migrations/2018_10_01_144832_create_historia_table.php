@@ -17,9 +17,6 @@ class CreateHistoriaTable extends Migration
             
           $table->increments('id');
           $table->string('texto');
-
-          $table->integer('id_eixo')->unsigned();
-          $table->foreign('id_eixo')->references('id')->on('eixo')->onDelete('cascade');
                 
           $table->string('personagem');
           $table->string('url_jogo');
