@@ -205,6 +205,24 @@ main #home{
 }
 
 
+.dashboard{
+    .title{
+        flex: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .personagens{
+        margin-bottom: 50px;
+
+        img:hover{
+            opacity: .5;
+        }
+    }
+}
+
+
+
 
 
 

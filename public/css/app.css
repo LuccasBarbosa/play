@@ -170,3 +170,17 @@ main #home .title {
   font-weight: 200;
 }
 
+.dashboard .title {
+  flex: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dashboard .personagens {
+  margin-bottom: 50px;
+}
+
+.dashboard .personagens img:hover {
+  opacity: 0.5;
+}
+
