@@ -39,7 +39,7 @@
             </div> --}}
 
         <div class="col-md-12">
-            <h1 class="title">Originais PlayNtus</h1>
+            <h1 class="title">Episódios PlayNtus</h1>
 
             <div class="row mb-20">
                 <div class="col-md-3">
