@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Admin;
-use App\Otica;
-use App\Vendedor;
-use App\Vendas;
 use Builder;
 use Date;
 
@@ -17,8 +14,8 @@ class AdminController extends Controller
 
     public function __construct()
     {
-/*         $this->middleware('auth:admin', ['only' => 'index', 'edit'])->except('logout');
- */
+        $this->middleware('auth:admin', ['only' => 'index', 'edit'])->except('logout');
+
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +27,7 @@ class AdminController extends Controller
  
                 
 
-        return view('admin.index');
+        return view('admin.dashboard');
     }
 
     /**
