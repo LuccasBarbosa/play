@@ -6,7 +6,7 @@
     
     <h1>Editar Personagem</h1>
 
-    <form class="form-horizontal" method="POST" action="{{ route('admin.personagem.store') }}">
+    <form class="form-horizontal" method="POST" action="#">
         {{ csrf_field() }}
 
         <div class="mb-3">

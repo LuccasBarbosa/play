@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->group(function ($id) {
-    Route::get('/', 'AdminController@index')->name('admin');
+    Route::get('/', 'AdminController@index')->name('admin.index');
     Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
     Route::get('editar/{id}', 'AdminController@edit')->name('admin.editar');
     Route::post('update/{id}', 'AdminController@update')->name('admin.update');
@@ -35,8 +35,6 @@ Route::prefix('admin')->group(function ($id) {
     Route::post('personagem/criar/', 'PersonagemController@store')->name('admin.personagem.store');
 
     Route::post('personagem/editar/{id}', 'PersonagemController@edit')->name('admin.personagem.editar');
-
     Route::post('personagem/atualizar/{id?}', 'PersonagemController@update')->name('admin.personagem.atualizar');
-    Route::get('personagem/{id}', 'PersonagemController@destroy')->name('admin.personagem.delete');
  
   });

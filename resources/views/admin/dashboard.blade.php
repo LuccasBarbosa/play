@@ -12,14 +12,14 @@
                 <h2 class="title">Personagens</h2>
 
                 @foreach ($personagem as $p)
-                <div class="col-md-3">
+                    <div class="col-md-3">
 
-                    <a href="{{ route('admin.personsagem.update', $p->id )}}">
-                            <p>{{$p->nome}}</p>
-                            <img src="http://lorempixel.com/200/200" class="img-fluid rounded-circle" alt="...">
-                        </a>
-                    
-                </div>
+                        <a href="{{ route('admin.personagem.atualizar', $p->id) }}">
+                                <p>{{$p->nome}}</p>
+                                <img src="http://lorempixel.com/200/200" class="img-fluid rounded-circle" alt="...">
+                            </a>
+                        
+                    </div>
                 @endforeach
                 
             </div>

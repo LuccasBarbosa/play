@@ -25,13 +25,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $personagem = Personagem::all();
-        return view('admin.dashboard', compact('personagem'));
+ 
+        return view('admin.index');
     }
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $personagem = Personagem::all();
+
+
+        return view('admin.dashboard', compact('personagem'));
     }
 
     /**
