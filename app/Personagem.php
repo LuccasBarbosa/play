@@ -15,7 +15,7 @@ class Personagem extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'historia', 'nome'
+        'nome'
     ];
 
     /**

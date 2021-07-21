@@ -14,7 +14,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:admin', ['only' => 'index', 'edit'])->except('logout');
+       /*  $this->middleware('auth:admin', ['only' => 'index', 'edit'])->except('logout'); */
 
     }
     /**
@@ -25,8 +25,11 @@ class AdminController extends Controller
     public function index()
     {
  
-                
+        return view('admin.index');
+    }
 
+    public function dashboard()
+    {
         return view('admin.dashboard');
     }
 

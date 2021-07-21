@@ -15,31 +15,26 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-
-Route::get('/personagens/charles', function () {
-    return view('personagens/charles');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
+Route::prefix('admin')->group(function ($id) {
+    Route::get('/', 'AdminController@index')->name('admin');
+    Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
     Route::get('editar/{id}', 'AdminController@edit')->name('admin.editar');
     Route::post('update/{id}', 'AdminController@update')->name('admin.update');
     Route::get('register', 'AdminController@create')->name('admin.register');
     Route::post('register', 'AdminController@store')->name('admin.register.store');
-    Route::get('login', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
-    Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');
-    Route::post('logout', 'Auth\Admin\LoginController@logout')->name('admin.auth.logout');
+    Route::get('login', 'Auth\Admin\LoginAdminController@login')->name('admin.auth.login');
+    Route::post('login', 'Auth\Admin\LoginAdminController@loginAdmin')->name('admin.auth.loginAdmin');
+    Route::post('logout', 'Auth\Admin\LoginAdminController@logout')->name('admin.auth.logout');
 
     Route::get('personagem/', 'PersonagemController@index')->name('personagem.index');
-    Route::get('personagem/editar/{id}', 'PersonagemController@edit')->name('personagem.editar');
+    Route::get('personagem/criar/', 'PersonagemController@create')->name('admin.personagem.criar');
+    Route::post('personagem/criar/', 'PersonagemController@store')->name('admin.personagem.store');
+    
+    
     Route::post('personagem/{id}', 'PersonagemController@update')->name('personagem.update');
     Route::get('personagem/{id}', 'PersonagemController@destroy')->name('personagem.delete');
  

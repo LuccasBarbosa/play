@@ -38,7 +38,7 @@ class PersonagemController extends Controller
      */
     public function create()
     {
-        return view('admin.personagem.create');
+        return view('admin.personagem.criar');
     }
 
     /**
@@ -49,25 +49,20 @@ class PersonagemController extends Controller
      */
     public function store(Request $request)
     {
-
         // validate the data
         $this->validate($request, [
-          'name'          => 'required',
-          'email'         => 'required',
-          'password'      => 'required'
-
+            'nome' => 'required',
         ]);
 
         // store in the database
-        $admins = new Admin;
-        $admins->name = $request->name;
-        $admins->email = $request->email;
-        $admins->password=bcrypt($request->password);
+        $personagem = new Personagem;
+        $personagem->nome = $request->nome;
 
-        $admins->save();
+        $personagem->save();
 
 
         return redirect()->route('admin.dashboard');
+        
 
     }
 
@@ -79,7 +74,7 @@ class PersonagemController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -91,7 +86,6 @@ class PersonagemController extends Controller
     public function edit($id)
     {
 
-        return view('admin.personagem.editar');
         
     }
 
@@ -104,25 +98,7 @@ class PersonagemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $admin = Admin::find($id); 
-
-        if (isset($admin)) {
-            
-            $admin->name = $request->input('name');
-            $admin->email = $request->input('email');
-
-            $admin->save();
-
-        } 
-
-        return redirect()
-                    ->route('admin.dashboard')
-                    ->with('success', 'Admin atualizada com sucesso!');
-
-        // Redireciona de volta com uma mensagem de erro
-        return redirect()
-                    ->back()
-                    ->with('error', 'Falha ao atualizar');  
+        
     }
 
     /**
