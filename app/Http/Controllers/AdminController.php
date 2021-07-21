@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Admin;
+use App\Personagem;
 use Builder;
 use Date;
 
@@ -24,8 +25,8 @@ class AdminController extends Controller
      */
     public function index()
     {
- 
-        return view('admin.index');
+        $personagem = Personagem::all();
+        return view('admin.dashboard', compact('personagem'));
     }
 
     public function dashboard()

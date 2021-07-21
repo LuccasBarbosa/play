@@ -33,9 +33,10 @@ Route::prefix('admin')->group(function ($id) {
     Route::get('personagem/', 'PersonagemController@index')->name('personagem.index');
     Route::get('personagem/criar/', 'PersonagemController@create')->name('admin.personagem.criar');
     Route::post('personagem/criar/', 'PersonagemController@store')->name('admin.personagem.store');
-    
-    
-    Route::post('personagem/{id}', 'PersonagemController@update')->name('personagem.update');
-    Route::get('personagem/{id}', 'PersonagemController@destroy')->name('personagem.delete');
+
+    Route::post('personagem/editar/{id}', 'PersonagemController@edit')->name('admin.personagem.editar');
+
+    Route::post('personagem/atualizar/{id?}', 'PersonagemController@update')->name('admin.personagem.atualizar');
+    Route::get('personagem/{id}', 'PersonagemController@destroy')->name('admin.personagem.delete');
  
   });

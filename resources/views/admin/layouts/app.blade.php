@@ -55,12 +55,10 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
                                 </a>
-
-
-                                  
+      
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('personagem/editar/1') }}">
+                                    <a class="dropdown-item" href="{{ route('admin.personagem.criar') }}">
                                        Personagem
                                     </a>
                                     

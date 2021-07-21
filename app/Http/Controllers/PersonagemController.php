@@ -85,8 +85,14 @@ class PersonagemController extends Controller
      */
     public function edit($id)
     {
-
+        $personagem = Personagem::find($id); 
         
+        if (isset($personagem)) {
+            return view('personagem.editar', compact('personagem'));
+        }
+
+        return view('admin.personagem.editar');
+
     }
 
     /**
@@ -98,7 +104,24 @@ class PersonagemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $personagem = Personagem::find($id); 
+
+        if (isset($personagem)) {
+            
+            $personagem->name = $request->input('name');
+
+            $personagem->save();
+
+        } 
+
+        return redirect()
+                    ->route('admin.dashboard')
+                    ->with('success', 'Admin atualizada com sucesso!');
+
+        // Redireciona de volta com uma mensagem de erro
+        return redirect()
+                    ->back()
+                    ->with('error', 'Falha ao atualizar');  
     }
 
     /**
