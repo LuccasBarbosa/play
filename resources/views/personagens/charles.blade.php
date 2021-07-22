@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 <div class="container" id="personagem">
     <div class="row">
 
@@ -46,12 +44,6 @@
                 </div>
             </div>
         </div>
-
-
-       
-
-
-
 
     </div>
 

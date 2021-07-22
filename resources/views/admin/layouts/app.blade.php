@@ -59,15 +59,15 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('admin.personagem.criar') }}">
-                                       Personagem
+                                       + Personagem
                                     </a>
                                     
                                     <a class="dropdown-item" href="{{ route('admin.episodio.criar') }}">
-                                        Episódio
+                                        + Episódio
                                      </a>
 
                                     <a class="dropdown-item" href="{{ route('admin.eixos.criar') }}">
-                                        Eixos
+                                        + Eixos
                                      </a>
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"

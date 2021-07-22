@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use App\Personagem;
+use App\Episodio;
+use Builder;
+use Date;
 
 class HomeController extends Controller
 {
@@ -23,6 +29,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $personagem = Personagem::all();
+        $episodios = Episodio::all();
+        return view('home', compact(['personagem', 'episodios']));
     }
+
 }
