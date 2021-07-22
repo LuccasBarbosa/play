@@ -147,10 +147,10 @@ class PersonagemController extends Controller
 
         if(isset($personagem)){
             $personagem->delete();
-            return view('admin.dashboard');
+            return redirect('/admin/dashboard');
         }
 
-        return view('admin.dashboard');
+        return redirect('/admin/dashboard');
 
 
     }

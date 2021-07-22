@@ -37,7 +37,7 @@ Route::prefix('admin')->group(function () {
     Route::get('personagem/{id}/editar', 'PersonagemController@edit')->name('admin.personagem.editar');
     Route::post('personagem/atualizar/{id}', 'PersonagemController@update')->name('admin.personagem.atualizar');
     
-    Route::delete('personagem/apagar/{id}', 'PersonagemController@destroy')->name('admin.personagem.apagar');
+    Route::get('personagem/apagar/{id}', 'PersonagemController@destroy')->name('admin.personagem.apagar');
 
     /* EPISÓDIO */
     Route::get('episodio/', 'EpisodioController@index')->name('episodio.index');

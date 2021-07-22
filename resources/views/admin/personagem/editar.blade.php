@@ -21,16 +21,7 @@
             <input type="submit" class="form-control btn-primary" id="enviar" value="Atualizar">
         </div>    
 
-    </form>
-
-    <form class="form-horizontal" method="POST" action="{{route('admin.personagem.apagar',$personagem->id)}}">
-        {{ csrf_field() }}
-        <div class="mb-3">
-            <input type="hidden" name="_method" value="delete">
-            <input type="submit" class="form-control btn-danger" id="enviar" value="Apagar">
-        </div> 
-    </form>    
-    
+    </form> 
 
 </div>
 
