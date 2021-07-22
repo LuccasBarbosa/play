@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Admin;
 use App\Personagem;
+use App\Episodio;
 use Builder;
 use Date;
 
@@ -32,9 +33,8 @@ class AdminController extends Controller
     public function dashboard()
     {
         $personagem = Personagem::all();
-
-
-        return view('admin.dashboard', compact('personagem'));
+        $episodio = Episodio::all();
+        return view('admin.dashboard', compact('personagem', 'episodio'));
     }
 
     /**

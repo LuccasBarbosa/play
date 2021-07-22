@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Admin;
 use App\Personagem;
+use App\Episodio;
 use Builder;
 use Date;
 
-class PersonagemController extends Controller
+class EpisodioController extends Controller
 {
 
     public function __construct()
@@ -27,7 +28,7 @@ class PersonagemController extends Controller
     {
  
 
-        return view('admin.personagem.index');
+        return view('admin.episodio.index');
 
         
     }
@@ -39,7 +40,8 @@ class PersonagemController extends Controller
      */
     public function create()
     {
-        return view('admin.personagem.criar');
+        $personagem = Personagem::all();
+        return view('admin.episodio.criar', compact('personagem'));
     }
 
     /**
@@ -51,20 +53,17 @@ class PersonagemController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request, [
-            'nome' => 'required',
-        ]);
+
+        $episodio = new Episodio;
+        $episodio->bimestre = $request->bimestre;
+        $episodio->texto = $request->texto;
+        $episodio->url_jogo = $request->url_jogo;
+        $episodio->id_personagem = $request->id_personagem;
 
         $path = $request->file('foto')->store('imagens', 'public');
+        $episodio->foto = $path; 
 
-        $personagem = new Personagem;
-        $personagem->nome = $request->nome;
-        $personagem->foto = $path;    
-
-        
-
-
-        $personagem->save();
+        $episodio->save();
 
 
         return redirect()->route('admin.dashboard');
@@ -91,15 +90,16 @@ class PersonagemController extends Controller
      */
     public function edit($id)
     {
-        $personagem = Personagem::find($id); 
+        $episodio = Historia::find($id); 
+
 
         
-        if (isset($personagem)) {
+        if (isset($episodio)) {
             
-            return view('admin.personagem.editar', compact('personagem'));
+            return view('admin.episodio.editar', compact('episodio'));
         }
 
-        return view('admin.personagem.editar');
+        return view('admin.episodio.editar');
 
     }
 
@@ -112,16 +112,13 @@ class PersonagemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $personagem = Personagem::find($id); 
+        $episodio = Episodio::find($id); 
 
-       
-        if (isset($personagem)) {
+        if (isset($episodio)) {
             
-            $personagem->nome = $request->input('nome');
-            $path = $request->file('foto')->store('imagens', 'public');
-            $personagem->foto = $path;  
-
-            $personagem->save();
+            $episodio->texto = $request->input('texto');
+            $episodio->url_jogo = $request->input('url_jogo');
+            $episodio->save();
 
         } 
 
@@ -143,16 +140,7 @@ class PersonagemController extends Controller
      */
     public function destroy($id)
     {
-        $personagem = Personagem::find($id); 
-
-        if(isset($personagem)){
-            $personagem->delete();
-            return view('admin.dashboard');
-        }
-
-        return view('admin.dashboard');
-
-
+        //
     }
 
     public function listarTodos()

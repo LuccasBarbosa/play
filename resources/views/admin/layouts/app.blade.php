@@ -62,9 +62,9 @@
                                        Personagem
                                     </a>
                                     
-                                    <a class="dropdown-item" href="#">
-                                       História
-                                    </a>
+                                    <a class="dropdown-item" href="{{ route('admin.episodio.criar') }}">
+                                        Episódio
+                                     </a>
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

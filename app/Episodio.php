@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Historia extends Authenticatable
+class Episodio extends Authenticatable
 {
     use Notifiable;
 
@@ -15,7 +15,7 @@ class Historia extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'texto', 'personagem', 'url_jogo',
+        'bimestre', 'texto', 'id_personagem', 'url_jogo', 'foto',
     ];
 
     /**

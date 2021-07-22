@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEixoTable extends Migration
+class CreatePersonagensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateEixoTable extends Migration
      */
     public function up()
     {
-        Schema::create('eixo', function (Blueprint $table) {
+        Schema::create('personagems', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('id_historia')->unsigned();
-          $table->foreign('id_historia')->references('id')->on('historia')->onDelete('cascade');
-          $table->string('eixo');
+          $table->string('nome');
+          $table->string('foto');
+          $table->timestamps();
+
         });
     }
 
@@ -28,6 +29,6 @@ class CreateEixoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eixo');
+        Schema::dropIfExists('personagems');
     }
 }
