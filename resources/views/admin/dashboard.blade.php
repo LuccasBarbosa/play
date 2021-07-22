@@ -47,7 +47,10 @@
                     <div class="card-body">
                     <h5 class="card-title">{{$e->bimestre}}</h5>
                     <p class="card-text">{{$e->texto}}</p>
-                    <a href="#" class="btn btn-primary">Editar</a>
+                    
+                    <a href="{{route('admin.episodio.editar', $e->id)}}" class="btn btn-primary">Editar</a>
+
+                    <a href="{{route('admin.episodio.apagar', $e->id)}}" class="btn btn-danger">Excluir</a>
                     </div>
                 </div>
             </div>

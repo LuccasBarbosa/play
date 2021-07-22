@@ -46,5 +46,15 @@ Route::prefix('admin')->group(function () {
 
     Route::get('episodio/{id}/editar', 'EpisodioController@edit')->name('admin.episodio.editar');
     Route::post('episodio/atualizar/{id}', 'EpisodioController@update')->name('admin.episodio.atualizar');
- 
+    Route::get('episodio/apagar/{id}', 'EpisodioController@destroy')->name('admin.episodio.apagar');
+
+
+    /* EIXOS */ 
+    Route::get('eixos/', 'EixoController@index')->name('eixos.index');
+    Route::get('eixos/criar/', 'EixoController@create')->name('admin.eixos.criar');
+    Route::post('eixos/criar/', 'EixoController@store')->name('admin.eixos.store');
+
+    Route::get('eixos/{id}/editar', 'EixoController@edit')->name('admin.eixos.editar');
+    Route::post('eixos/atualizar/{id}', 'EixoController@update')->name('admin.eixos.atualizar');
+    Route::get('eixos/apagar/{id}', 'EixoController@destroy')->name('admin.eixos.apagar');   
   });

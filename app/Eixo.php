@@ -9,13 +9,17 @@ class Eixo extends Authenticatable
 {
     use Notifiable;
 
+    protected $casts = [
+        'eixo' => 'array',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'id_historia', 'eixo', 
+        'eixo', 'id_episodio', 
     ];
 
     /**

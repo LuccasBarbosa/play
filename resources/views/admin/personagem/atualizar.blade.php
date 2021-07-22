@@ -6,9 +6,9 @@
     
     <h1>Update Personagem</h1>
 
-    <form class="form-horizontal" method="POST" action="{{ route('admin.personagem.atualizar', $personagem->id) }}">
+    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('admin.personagem.atualizar', $personagem->id) }}">
         {{ csrf_field() }}
-        @method('PUT')
+        @method('PUT');
 
         <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>

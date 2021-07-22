@@ -8,10 +8,11 @@ use Auth;
 use App\Admin;
 use App\Personagem;
 use App\Episodio;
+use App\Eixo;
 use Builder;
 use Date;
 
-class EpisodioController extends Controller
+class EixoController extends Controller
 {
 
     public function __construct()
@@ -28,7 +29,7 @@ class EpisodioController extends Controller
     {
  
 
-        return view('admin.episodio.index');
+        return view('admin.eixos.index');
 
         
     }
@@ -40,8 +41,8 @@ class EpisodioController extends Controller
      */
     public function create()
     {
-        $personagem = Personagem::all();
-        return view('admin.episodio.criar', compact('personagem'));
+        $episodio = Episodio::all();
+        return view('admin.eixos.criar', compact('episodio'));
     }
 
     /**
@@ -54,16 +55,12 @@ class EpisodioController extends Controller
     {
 
 
-        $episodio = new Episodio;
-        $episodio->bimestre = $request->bimestre;
-        $episodio->texto = $request->texto;
-        $episodio->url_jogo = $request->url_jogo;
-        $episodio->id_personagem = $request->id_personagem;
+        $eixo = new Eixo;
+        $eixo->eixo = $request->eixo;
+        $eixo->id_episodio = $request->id_episodio;
+        
 
-        $path = $request->file('foto')->store('imagens', 'public');
-        $episodio->foto = $path; 
-
-        $episodio->save();
+        $eixo->save();
 
 
         return redirect()->route('admin.dashboard');
@@ -90,16 +87,15 @@ class EpisodioController extends Controller
      */
     public function edit($id)
     {
-        $episodio = Episodio::find($id); 
-        $personagem = Personagem::find($id); 
+        $eixo = Eixo::find($id); 
 
         
-        if (isset($episodio)) {
+        if (isset($eixo)) {
             
-            return view('admin.episodio.editar', compact(['episodio', 'personagem']));
+            return view('admin.eixos.editar', compact(['eixo', 'personagem']));
         }
 
-        return view('admin.episodio.editar');
+        return view('admin.eixos.editar');
 
     }
 
@@ -112,19 +108,14 @@ class EpisodioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $episodio = Episodio::find($id); 
+        $eixo = Eixo::find($id); 
 
-        if (isset($episodio)) {
+        if (isset($eixo)) {
             
-            $episodio->bimestre = $request->input('bimestre');
-            $episodio->texto = $request->input('texto');
-            $episodio->id_personagem = 14;
-            $episodio->url_jogo = $request->input('url_jogo');
+            $eixo->eixo = $request->input('eixo');
+            $eixo->id_episodio = $request->input('id_episodio');
 
-            $path = $request->file('foto')->store('imagens', 'public');
-            $episodio->foto = $path; 
-
-            $episodio->save();
+            $eixo->save();
 
         } 
 
@@ -146,10 +137,10 @@ class EpisodioController extends Controller
      */
     public function destroy($id)
     {
-        $episodio = Episodio::find($id); 
+        $eixo = Eixo::find($id); 
 
-        if(isset($episodio)){
-            $episodio->delete();
+        if(isset($eixo)){
+            $eixo->delete();
             return redirect('/admin/dashboard');
         }
 

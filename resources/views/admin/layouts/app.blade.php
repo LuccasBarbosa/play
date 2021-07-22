@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
                     {{-- {{ config('app.name', 'PlayNtus') }} --}}
                     <img src="{{asset('image/logo.png')}}" alt="">
                 </a>
@@ -64,6 +64,10 @@
                                     
                                     <a class="dropdown-item" href="{{ route('admin.episodio.criar') }}">
                                         Episódio
+                                     </a>
+
+                                    <a class="dropdown-item" href="{{ route('admin.eixos.criar') }}">
+                                        Eixos
                                      </a>
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"

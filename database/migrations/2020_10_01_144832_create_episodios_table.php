@@ -19,6 +19,7 @@ class CreateEpisodiosTable extends Migration
           $table->increments('id');
           $table->string('bimestre');
           $table->string('texto');
+          $table->string('foto');
             
 
           $table->integer('id_personagem')->unsigned();
