@@ -118,7 +118,7 @@ class EpisodioController extends Controller
             
             $episodio->bimestre = $request->input('bimestre');
             $episodio->texto = $request->input('texto');
-            $episodio->id_personagem = 14;
+            $episodio->id_personagem = $request->input('id_personagem');
             $episodio->url_jogo = $request->input('url_jogo');
 
             $path = $request->file('foto')->store('imagens', 'public');

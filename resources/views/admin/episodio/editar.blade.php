@@ -30,7 +30,7 @@
         <div class="mb-3">
             <select name="id_personagem" id="">
 
-                <option value="">{{$episodio->id_personagem}}</option>
+                <option value="{{$episodio->id_personagem}}">{{$episodio->id_personagem}}</option>
                 
             </select>
        </div>  
