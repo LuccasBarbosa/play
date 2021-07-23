@@ -1,6 +1,8 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
 // Variables
 @import 'variables';
 
@@ -9,6 +11,11 @@
 
 *{
     outline: none;
+    font-family: 'Lato', sans-serif;
+}
+
+a:hover{
+    text-decoration: none;
 }
 
 .mb-20{
@@ -62,7 +69,12 @@
 .card{
     box-shadow: 5px 5px 5px #ccc;
     padding: 20px;
-    border-radius: 30px;
+    
+}
+
+.card-body{
+        /* align-content: center; */
+        align-self: center;
 }
 
 
@@ -114,7 +126,11 @@ main #home{
     }
 
     
+
+    
 }
+
+
 
 
 
@@ -149,7 +165,7 @@ main #home{
 
 
     .title{
-        font-weight: 600;
+        font-weight: 100;
         font-size: 1.5rem;
     }
 
@@ -172,7 +188,7 @@ main #home{
         }
     
         .title{
-            font-weight: 600;
+            font-weight: 100;
             font-size: 1.5rem;
         }
     
@@ -206,10 +222,47 @@ main #home{
 
 
 .dashboard{
+
+    .centro{
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+    }
+    
+    .left-sidebar{
+        background: rgba(0,0,0,.7);
+        padding-top: 30px;
+
+       h1{
+            font-size: 1.2rem;
+            color: rgba(255,255,255,.7);
+            margin-bottom: 20px;
+        }
+
+        a{
+            color: rgba(255,255,255,.7);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+
+            :hover{
+                background: transparent;
+                text-decoration: none !important;
+            }
+
+            i{
+                font-size: 5px;
+                vertical-align: middle;
+                padding-right: 5px;
+            }
+        }
+    }
+
+
     .title{
         flex: 100%;
         margin-bottom: 20px;
-        text-align: center;
+        text-align: left;
+        margin-left: 20px;
     }
 
     .personagens{
