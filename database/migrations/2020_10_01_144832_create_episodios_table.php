@@ -20,8 +20,7 @@ class CreateEpisodiosTable extends Migration
           $table->string('bimestre');
           $table->string('texto');
           $table->string('foto');
-            
-
+          $table->string('eixo');
           $table->integer('id_personagem')->unsigned();
           $table->foreign('id_personagem')->references('id')->on('personagems')->onDelete('cascade');
 

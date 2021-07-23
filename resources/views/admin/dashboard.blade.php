@@ -18,10 +18,10 @@
                 Episódio
             </a>
 
-            <a class="" href="{{ route('admin.eixos.criar') }}">
+            {{-- <a class="" href="{{ route('admin.eixos.criar') }}">
                 <i class="fa fa-circle" aria-hidden="true"></i>
                 Eixos de Desenvolvimento
-            </a>
+            </a> --}}
         </div>
 
         <div class="col-md-10 centro ">
@@ -38,7 +38,7 @@
 
                                 <img src="{{ url("storage/{$p->foto}") }}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                <h5 class="card-title">{{$p->bimestre}}</h5>
+                                <h5 class="card-title text-center">{{$p->nome}}</h5>
                                 
                                 <a href="{{route('admin.personagem.editar', $p->id)}}" class="btn btn-primary">Editar</a>
 

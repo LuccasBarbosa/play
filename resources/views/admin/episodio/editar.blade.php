@@ -12,19 +12,23 @@
 
         <div class="mb-3">
             <label for="nome" class="form-label">Bimestre</label>
-            <input type="text" name="bimestre" class="form-control" id="nome" placeholder="Nome do Personagem" value="{{$episodio->bimestre}}">
+            <input type="text" name="bimestre" class="form-control" id="nome"  value="{{$episodio->bimestre}}">
         </div>
         <div class="mb-3">
             <label for="nome" class="form-label">Texto</label>
-            <input type="text" name="texto" class="form-control" id="nome" placeholder="Nome do Personagem" value="{{$episodio->texto}}">
+            <input type="text" name="texto" class="form-control" id="nome"  value="{{$episodio->texto}}">
         </div>
         <div class="mb-3">
             <label for="nome" class="form-label">Url do Jogo</label>
-            <input type="text" name="url_jogo" class="form-control" id="nome" placeholder="Nome do Personagem" value="{{$episodio->url_jogo}}">
+            <input type="text" name="url_jogo" class="form-control" id="nome" value="{{$episodio->url_jogo}}">
+        </div>
+        <div class="mb-3">
+            <label for="nome" class="form-label">Eixos de Desenvolvimento</label>    
+            <input type="text" name="eixo" class="form-control" id="nome"  value="{{$episodio['eixo']}}">  
         </div>
         <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
-            <input type="file" class="form-control" id="foto" name="foto">
+            <input type="file" class="form-control" id="foto" name="foto" value="{{$episodio->foto}}">
         </div>   
 
         <div class="mb-3">

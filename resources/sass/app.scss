@@ -226,6 +226,7 @@ main #home{
     .centro{
         border-left: 1px solid #ccc;
         border-right: 1px solid #ccc;
+        padding-left: 30px;
     }
     
     .left-sidebar{
@@ -270,10 +271,6 @@ main #home{
 
     .personagens{
         margin-bottom: 50px;
-
-        img:hover{
-            opacity: .5;
-        }
     }
 }
 

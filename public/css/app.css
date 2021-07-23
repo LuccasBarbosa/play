@@ -190,6 +190,7 @@ main #home .title {
 .dashboard .centro {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  padding-left: 30px;
 }
 
 .dashboard .left-sidebar {
@@ -234,9 +235,5 @@ main #home .title {
 
 .dashboard .personagens {
   margin-bottom: 50px;
-}
-
-.dashboard .personagens img:hover {
-  opacity: 0.5;
 }
 

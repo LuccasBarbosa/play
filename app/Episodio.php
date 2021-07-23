@@ -9,13 +9,17 @@ class Episodio extends Authenticatable
 {
     use Notifiable;
 
+    protected $casts = [
+        'eixo' => 'array',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'bimestre', 'texto', 'id_personagem', 'url_jogo', 'foto',
+        'bimestre', 'texto', 'id_personagem', 'url_jogo', 'foto', 'eixo',
     ];
 
     /**

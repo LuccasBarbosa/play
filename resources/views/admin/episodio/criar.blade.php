@@ -22,6 +22,10 @@
             <input type="text" class="form-control" id="url_jogo" name="url_jogo">
         </div>   
         <div class="mb-3">
+            <label for="foto" class="form-label">Eixos de Desenvolvimento</label>
+            <input type="text" class="form-control" id="eixo" name="eixo[]">        
+        </div>   
+        <div class="mb-3">
             <label for="foto" class="form-label">Capa</label>
             <input type="file" class="form-control" id="foto" name="foto">
         </div> 
