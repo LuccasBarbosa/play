@@ -27,7 +27,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
                     {{-- {{ config('app.name', 'PlayNtus') }} --}}
                     <img src="{{asset('image/logo.png')}}" alt="">
