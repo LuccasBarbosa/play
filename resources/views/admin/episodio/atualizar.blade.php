@@ -31,6 +31,10 @@
             <label for="nome" class="form-label">id Personagem</label>
             <input type="text" name="id_personagem" class="form-control" id="nome" placeholder="Nome do Personagem" >
         </div>
+        <div class="mb-3">
+            <label for="id_serie" class="form-label">Série</label>
+            <input type="text" name="id_serie" class="form-control" id="id_serie" placeholder="Serie" >
+        </div>
 
         
         <div class="mb-3">

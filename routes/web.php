@@ -23,6 +23,16 @@ Route::prefix('home')->group(function () {
 
 });
 
+// Route::get('/personagens/{nome}', function ($nome) {
+//     return view('personagens/{nome}');
+    
+// });
+
+Route::get('/personagem/{id?}', 'HomeController@personagens')->name('personagens');
+Route::get('/episodio/{id?}', 'HomeController@episodio')->name('episodio');
+Route::get('/serie/{id?}', 'HomeController@serie')->name('serie');
+Route::get('/quiz', 'HomeController@quiz')->name('quiz');
+
 Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('admin.index');
     Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
@@ -43,6 +53,16 @@ Route::prefix('admin')->group(function () {
     
     Route::get('personagem/apagar/{id}', 'PersonagemController@destroy')->name('admin.personagem.apagar');
 
+    /* SÉRIE */
+    Route::get('serie/', 'SerieController@index')->name('serie.index');
+    Route::get('serie/criar/', 'SerieController@create')->name('admin.serie.criar');
+    Route::post('serie/criar/', 'SerieController@store')->name('admin.serie.store');
+
+    Route::get('serie/{id}/editar', 'SerieController@edit')->name('admin.serie.editar');
+    Route::post('serie/atualizar/{id}', 'SerieController@update')->name('admin.serie.atualizar');
+    Route::get('serie/apagar/{id}', 'SerieController@destroy')->name('admin.serie.apagar');
+
+
     /* EPISÓDIO */
     Route::get('episodio/', 'EpisodioController@index')->name('episodio.index');
     Route::get('episodio/criar/', 'EpisodioController@create')->name('admin.episodio.criar');
@@ -60,5 +80,25 @@ Route::prefix('admin')->group(function () {
 
     Route::get('eixos/{id}/editar', 'EixoController@edit')->name('admin.eixos.editar');
     Route::post('eixos/atualizar/{id}', 'EixoController@update')->name('admin.eixos.atualizar');
-    Route::get('eixos/apagar/{id}', 'EixoController@destroy')->name('admin.eixos.apagar');   
+    Route::get('eixos/apagar/{id}', 'EixoController@destroy')->name('admin.eixos.apagar'); 
+    
+    
+    /* QUESTION */ 
+    Route::get('question/', 'QuestionController@index')->name('question.index');
+    Route::get('question/criar/', 'QuestionController@create')->name('admin.question.criar');
+    Route::post('question/criar/', 'QuestionController@store')->name('admin.question.store');
+
+    Route::get('question/{id}/editar', 'QuestionController@edit')->name('admin.question.editar');
+    Route::post('question/atualizar/{id}', 'QuestionController@update')->name('admin.question.atualizar');
+    Route::get('question/apagar/{id}', 'QuestionController@destroy')->name('admin.question.apagar');  
+    
+    
+    /* ANWSER */ 
+    Route::get('answer/', 'AnswerController@index')->name('answer.index');
+    Route::get('answer/criar/', 'AnswerController@create')->name('admin.answer.criar');
+    Route::post('answer/criar/', 'AnswerController@store')->name('admin.answer.store');
+
+    Route::get('answer/{id}/editar', 'AnswerController@edit')->name('admin.answer.editar');
+    Route::post('answer/atualizar/{id}', 'AnswerController@update')->name('admin.answer.atualizar');
+    Route::get('answer/apagar/{id}', 'AnswerController@destroy')->name('admin.answer.apagar');   
   });

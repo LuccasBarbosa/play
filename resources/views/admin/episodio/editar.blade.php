@@ -23,13 +23,25 @@
             <input type="text" name="url_jogo" class="form-control" id="nome" value="{{$episodio->url_jogo}}">
         </div>
         <div class="mb-3">
+            <label for="nome" class="form-label">Url do Vídeo</label>
+            <input type="text" name="url_video" class="form-control" id="nome" value="{{$episodio->url_video}}">
+        </div>
+        <div class="mb-3">
             <label for="nome" class="form-label">Eixos de Desenvolvimento</label>    
-            <input type="text" name="eixo" class="form-control" id="nome"  value="{{$episodio['eixo']}}">  
+            <input type="text" name="eixo" class="form-control" id="nome"  value="">  
         </div>
         <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
             <input type="file" class="form-control" id="foto" name="foto" value="{{$episodio->foto}}">
         </div>   
+
+        <div class="mb-3">
+            <select name="id_serie" id="">
+
+                <option value="{{$episodio->id_serie}}">{{$episodio->id_serie}}</option>
+                
+            </select>
+       </div>  
 
         <div class="mb-3">
             <select name="id_personagem" id="">

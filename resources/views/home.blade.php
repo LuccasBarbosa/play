@@ -12,12 +12,12 @@
             <div class="row mb-20">
                 @foreach ($personagem as $p)
                 
-            
                 <div class="col-md-3">
-                    <a href="#">
+                    <a href="{{ url("../personagem/{$p->id}") }}">
                         <img src="{{ url("storage/{$p->foto}") }}" alt="" class="img-fluid rounded-circle img-personagens">
                     </a>
                 </div>
+
                 @endforeach
                 
             </div>
@@ -26,17 +26,16 @@
 
         
         <div class="col-md-12">
-            <h1 class="title">Episódios</h1>
+            <h1 class="title">Séries (Aulas)</h1>
+
 
             <div class="row mb-20">
-                @foreach ($episodios as $e)
-                
-            
-                <div class="col-md-3">
-                    <a href="{{$e->id}}">
-                        <img src="{{ url("storage/{$e->foto}") }}" alt="" class="img-fluid">
-                    </a>
-                </div>
+                @foreach ($serie as $s)         
+                    <div class="col-md-3">
+                        <a href="{{ url("../serie/{$s->id}") }}">
+                            <img src="{{ url("storage/{$s->capa}") }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
                 @endforeach
                 
                 
@@ -45,7 +44,7 @@
         </div>
 
 
-        <div class="col-md-12">
+        {{-- <div class="col-md-12">
             <h1 class="title">Drops</h1>
 
             <div class="row mb-20">
@@ -57,7 +56,7 @@
                 
             </div>
     
-        </div>
+        </div> --}}
 
 
 

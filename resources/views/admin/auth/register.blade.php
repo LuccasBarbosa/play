@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="text-center mb-4">
-                            <img class="mb-4 logo img-fluid" src="{{asset('img/logo.png')}}" alt="noctus" width="72" height="72">
+                            <img class="mb-4 logo img-fluid" src="{{asset('img/logo.png')}}" alt="Play Ntus" width="72" height="72">
                             <h1 class="h3 mb-3 font-weight-normal">...</h1>
                         </div>
 

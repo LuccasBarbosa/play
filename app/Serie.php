@@ -5,21 +5,14 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Episodio extends Authenticatable
+class Serie extends Authenticatable
 {
     use Notifiable;
 
-    public function personagem() {
-        return $this->hasOne('App\Personagem');
-    }
-
-    public function questions() {
-        return $this->hasMany('App\Question');
-    }
-
-    // protected $casts = [
-    //     'eixo' => 'array',
-    // ];
+    protected $casts = [
+        'eixo' => 'array',
+    ];
+    
 
     /**
      * The attributes that are mass assignable.
@@ -27,7 +20,7 @@ class Episodio extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'bimestre', 'texto', 'id_personagem', 'id_serie', 'url_jogo', 'url_video', 'foto',
+        'id', 'texto', 'eixo', 'serie', 'capa', 'id_personagem'
     ];
 
     /**
@@ -36,6 +29,6 @@ class Episodio extends Authenticatable
      * @var array
      */
     protected $hidden = [
-       
+        
     ];
 }

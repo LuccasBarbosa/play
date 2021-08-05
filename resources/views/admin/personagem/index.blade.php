@@ -5,6 +5,10 @@
     
     
     <h1>Personagem</h1>
+
+    @foreach ($personagem as $p)
+        
+    @endforeach
 </div>
 
 

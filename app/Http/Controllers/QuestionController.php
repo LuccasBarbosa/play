@@ -6,20 +6,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Admin;
-use App\Personagem;
-use App\Serie;
 use App\Episodio;
 use App\Question;
+use App\Answer;
 use Builder;
 use Date;
 
-class AdminController extends Controller
+class QuestionController extends Controller
 {
 
     public function __construct()
     {
-        
-    //    $this->middleware('auth:admin', ['excpet' => 'index', 'edit'])->except('logout');
+       
 
     }
     /**
@@ -30,16 +28,10 @@ class AdminController extends Controller
     public function index()
     {
  
-        return view('admin.index');
-    }
-
-    public function dashboard()
-    {
-        $personagem = Personagem::all();
-        $episodio = Episodio::all();
         $question = Question::all();
-        $serie = Serie::all();
-        return view('admin.dashboard', compact('personagem', 'episodio', 'serie','question'));
+        return view('admin.question.index', compact('question'));
+
+        
     }
 
     /**
@@ -49,7 +41,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.auth.register');
+        $episodio = Episodio::all();
+        return view('admin.question.criar', compact('episodio'));   
     }
 
     /**
@@ -61,24 +54,18 @@ class AdminController extends Controller
     public function store(Request $request)
     {
 
-        // validate the data
-        $this->validate($request, [
-          'name'          => 'required',
-          'email'         => 'required',
-          'password'      => 'required'
 
-        ]);
+        $quiz = new Question;
+        $quiz->id_bimestre = $request->id_bimestre;
+        $quiz->question = $request->question;
+       
+        
 
-        // store in the database
-        $admins = new Admin;
-        $admins->name = $request->name;
-        $admins->email = $request->email;
-        $admins->password=bcrypt($request->password);
+        $quiz->save();
 
-        $admins->save();
-
-
-        return redirect()->route('admin.dashboard');
+        
+        return redirect()->route('admin.question.criar');
+        
 
     }
 
@@ -90,7 +77,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -101,10 +88,17 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $admin = Admin::find($id); 
-        if (isset($admin)) {
-            return view('admin.editar', compact('admin'));
+        $question = Question::find($id); 
+        $answer   = Answer::all(); 
+
+        
+        if (isset($question)) {
+            
+            return view('admin.question.editar', compact(['question', 'answer']));
         }
+
+        return view('admin.question.editar');
+
     }
 
     /**
@@ -116,14 +110,14 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $admin = Admin::find($id); 
+        $question = Question::find($id); 
 
-        if (isset($admin)) {
+       
+        if (isset($question)) {
             
-            $admin->name = $request->input('name');
-            $admin->email = $request->input('email');
-
-            $admin->save();
+            $question->question = $request->input('question');
+            
+            $question->save();
 
         } 
 
@@ -145,7 +139,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
+
     
 }

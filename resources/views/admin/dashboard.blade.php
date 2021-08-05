@@ -13,15 +13,22 @@
                 Personagem 
             </a>
             
+            <a class="" href="{{ route('admin.serie.criar') }}">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                Série
+            </a>     
+                  
             <a class="" href="{{ route('admin.episodio.criar') }}">
                 <i class="fa fa-circle" aria-hidden="true"></i>
                 Episódio
+            </a>           
+
+            <a class="" href="{{ route('admin.question.criar') }}">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                Quiz
             </a>
 
-            {{-- <a class="" href="{{ route('admin.eixos.criar') }}">
-                <i class="fa fa-circle" aria-hidden="true"></i>
-                Eixos de Desenvolvimento
-            </a> --}}
+            
         </div>
 
         <div class="col-md-10 centro ">
@@ -55,6 +62,33 @@
             </div>
 
             <div class="row historias py-4">
+                <h2 class="title">Série</h2>
+        
+                @if (isset($personagem))
+                    @foreach ($serie as $s)
+        
+                    <div class="col-md-4">
+                        <div class="card">
+        
+                            <img src="{{ url("storage/{$s->capa}") }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title text-center">{{$s->serie}}</h5>
+        
+                            <a href="{{route('admin.serie.editar', $s->id)}}" class="btn btn-primary">Editar</a>
+        
+                            <a href="{{route('admin.serie.apagar', $s->id)}}" class="btn btn-danger">Excluir</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    @endforeach
+                @else
+                    <p>Não existe ainda :(</p>
+                @endif
+  
+            </div>
+
+            {{-- <div class="row historias py-4">
                 <h2 class="title">Episódios</h2>
         
                 @if (isset($personagem))
@@ -79,11 +113,11 @@
                 @else
                     <p>Não existe ainda :(</p>
                 @endif
-                
-        
-                
-        
-            </div>
+  
+            </div> --}}
+
+
+            
 
         </div>
 
