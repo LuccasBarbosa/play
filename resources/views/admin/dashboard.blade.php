@@ -23,10 +23,10 @@
                 Episódio
             </a>           
 
-            <a class="" href="{{ route('admin.question.criar') }}">
+            {{-- <a class="" href="{{ route('admin.question.criar') }}">
                 <i class="fa fa-circle" aria-hidden="true"></i>
                 Quiz
-            </a>
+            </a> --}}
 
             
         </div>
@@ -88,7 +88,7 @@
   
             </div>
 
-            {{-- <div class="row historias py-4">
+            <div class="row historias py-4">
                 <h2 class="title">Episódios</h2>
         
                 @if (isset($personagem))
@@ -114,7 +114,7 @@
                     <p>Não existe ainda :(</p>
                 @endif
   
-            </div> --}}
+            </div>
 
 
             

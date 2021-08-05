@@ -26,16 +26,15 @@
             <label for="nome" class="form-label">Url do Vídeo</label>
             <input type="text" name="url_video" class="form-control" id="nome" value="{{$episodio->url_video}}">
         </div>
-        <div class="mb-3">
-            <label for="nome" class="form-label">Eixos de Desenvolvimento</label>    
-            <input type="text" name="eixo" class="form-control" id="nome"  value="">  
-        </div>
+        
         <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
             <input type="file" class="form-control" id="foto" name="foto" value="{{$episodio->foto}}">
         </div>   
 
         <div class="mb-3">
+            <label for="foto" class="form-label">Série</label>
+
             <select name="id_serie" id="">
 
                 <option value="{{$episodio->id_serie}}">{{$episodio->id_serie}}</option>
@@ -44,6 +43,7 @@
        </div>  
 
         <div class="mb-3">
+            <label for="foto" class="form-label">Personagem</label>
             <select name="id_personagem" id="">
 
                 <option value="{{$episodio->id_personagem}}">{{$episodio->id_personagem}}</option>

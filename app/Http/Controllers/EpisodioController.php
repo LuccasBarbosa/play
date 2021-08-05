@@ -88,7 +88,6 @@ class EpisodioController extends Controller
         $episodio->texto = $request->texto;
         $episodio->url_video = $request->url_video;
         $episodio->url_jogo = $request->url_jogo;
-        $episodio->eixo = $request->eixo;
 
         $episodio->id_personagem = $request->id_personagem;
 
@@ -150,10 +149,11 @@ class EpisodioController extends Controller
             
             $episodio->bimestre = $request->input('bimestre');
             $episodio->texto = $request->input('texto');
-            $episodio->id_personagem = $request->input('id_personagem');
             $episodio->url_video = $request->input('url_video');
             $episodio->url_jogo = $request->input('url_jogo');
-            $episodio->eixo = $request->input('eixo');
+            $episodio->id_serie = $request->input('id_serie');
+            $episodio->id_personagem = $request->input('id_personagem');
+
 
             if ($request->file('foto') == null) {
                 $file = "nada";

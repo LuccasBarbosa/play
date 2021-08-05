@@ -31,6 +31,8 @@
         </div>
 
         <div class="mb-3">
+            <label for="nome" class="form-label">Id Personagem</label>    
+
             <select name="id_personagem" id="">
 
                 <option value="{{$serie->id_personagem}}">{{$serie->id_personagem}}</option>
