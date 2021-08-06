@@ -14,6 +14,10 @@
         <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome do Personagem" value="{{$personagem->nome}}">
         </div>
         <div class="mb-3">
+            <label for="texto" class="form-label">Texto</label>
+            <textarea name="texto" class="form-control" id="texto" placeholder="Texto">{{$personagem->texto}}</textarea>
+        </div>
+        <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
             <input type="file" class="form-control" id="foto" name="foto">
         </div>   

@@ -59,6 +59,7 @@ class PersonagemController extends Controller
 
         $personagem = new Personagem;
         $personagem->nome = $request->nome;
+        $personagem->texto = $request->texto;
         $personagem->foto = $path;    
 
         
@@ -117,7 +118,8 @@ class PersonagemController extends Controller
        
         if (isset($personagem)) {
             
-            $personagem->nome = $request->input('nome');
+            $personagem->nome = $request->nome;
+            $personagem->texto = $request->texto;
             $path = $request->file('foto')->store('imagens', 'public');
             $personagem->foto = $path;  
 

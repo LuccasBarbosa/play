@@ -2,20 +2,22 @@
 
 @section('content')
 
+<div>
+    <div class="voltar">
+        <h1>
+            {{-- <a href="{{ URL::previous() }}"> --}}
+            <a href="{{route('home')}}">    
+                <img src="{{asset('image/voltar.png')}}" alt="" class="back">
+                Voltar
+            </a>
+        </h1>
+    
+        <img src="{{asset('image/charlie-bg.jpeg')}}" alt="" class="img-fluid cover">
+    </div>
+</div>
+
 <div class="container" id="personagem">
     <div class="row">
-
-        <div class="voltar">
-            <h1>
-                {{-- <a href="{{ URL::previous() }}"> --}}
-                <a href="{{route('home')}}">    
-                    <img src="{{asset('image/voltar.png')}}" alt="" class="back">
-                    Voltar
-                </a>
-            </h1>
-        
-            <img src="{{asset('image/charlie-bg.jpeg')}}" alt="" class="img-fluid cover">
-        </div>
 
         <div class="col-md-12">
           <div class="box-img">
@@ -26,14 +28,18 @@
 
         <div class="col-md-6">
             <div class="informacoes">
-                @foreach ($episodio as $e)
-                    <h3>{{$e->bimestre}}</h3>
-                    <p>{{$e->texto}}</p>
-                @endforeach
+                    <div class="age">2+</div>
+                    <span>Contador</span>
+                    <p class="mt-2">{{$personagem->texto}}</p>
+                
               </div>
         </div>
 
         <div class="col-md-6">
+            <div class="info">
+                <p>Todo show no PlayKids é apropriado para todas as idades, mas alguns temas são melhor compreendidos em estágios específicos do desenvolvimento do pequeno.</p>
+            </div>
+
             <div class="tags">
                 <h3>Eixos de Desenvolvimento</h3>
                 <div class="selos">

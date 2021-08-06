@@ -9,8 +9,19 @@
     <form class="form-horizontal" method="POST" action="{{ route('admin.question.store') }}">
         {{ csrf_field() }}
 
-        <select name="id_bimestre" class="form-control my-4">
-            <option value="#">Escolha o bimestre</option>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <p>Os seguintes erros foram encontrados:</p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        <select name="id_episodio" class="form-control my-4">
+            <option value="#">Escolha o Episódio</option>
             @foreach ($episodio as $e)
                 <option value="{{$e->id}}">{{$e->bimestre}}</option>
             @endforeach
@@ -19,8 +30,8 @@
 
         {{-- PERGUNTA 1 --}}
         <div class="mb-3">
-            <label for="resposta" class="form-label">Pergunta</label>
-            <input type="text" class="form-control" id="pergunta" name="description">        
+            <label for="description" class="form-label">Pergunta</label>
+            <input type="text" class="form-control" id="description" name="description">        
         </div>
 
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnswersTable extends Migration
+class CreateOptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('answers', function (Blueprint $table) {
+        Schema::create('options', function (Blueprint $table) {
             
           $table->increments('id');
           
@@ -37,8 +37,8 @@ class CreateAnswersTable extends Migration
     public function down()
     {
 
-        Schema::table('answers', function (Blueprint $table) {
-            $table->dropForeign('answers_id_question_foreign');
+        Schema::table('options', function (Blueprint $table) {
+            $table->dropForeign('options_id_question_foreign');
         });
 
         Schema::dropIfExists('answers');

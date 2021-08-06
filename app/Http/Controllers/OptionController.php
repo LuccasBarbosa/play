@@ -8,11 +8,11 @@ use Auth;
 use App\Admin;
 use App\Episodio;
 use App\Question;
-use App\Answer;
+use App\Option;
 use Builder;
 use Date;
 
-class AnswerController extends Controller
+class OptionController extends Controller
 {
 
     public function __construct()
@@ -25,11 +25,12 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
  
-        $question = Question::all();
-        return view('admin.answer', compact('question'));
+        $options = Option::where('id', $id)->get();
+
+        return view('admin.opcoes.index', compact('options'));
 
         
     }
@@ -39,11 +40,12 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $episodio = Episodio::all();
-        $question = Question::all();
-        return view('admin.answer.criar', compact(['episodio','question']));   
+        
+        $option = new Option;
+        $option->id = $id;
+        return view('admin.opcoes.criar', compact(['option']));   
     }
 
     /**

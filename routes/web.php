@@ -73,32 +73,34 @@ Route::prefix('admin')->group(function () {
     Route::get('episodio/apagar/{id}', 'EpisodioController@destroy')->name('admin.episodio.apagar');
 
 
-    /* EIXOS */ 
-    Route::get('eixos/', 'EixoController@index')->name('eixos.index');
-    Route::get('eixos/criar/', 'EixoController@create')->name('admin.eixos.criar');
-    Route::post('eixos/criar/', 'EixoController@store')->name('admin.eixos.store');
+    Route::prefix('question')->group(function () {
+        /* QUESTION */ 
+        Route::get('/', 'QuestionController@index')->name('question.index');
+        Route::get('criar/', 'QuestionController@create')->name('admin.question.criar');
+        Route::post('criar/', 'QuestionController@store')->name('admin.question.store');
 
-    Route::get('eixos/{id}/editar', 'EixoController@edit')->name('admin.eixos.editar');
-    Route::post('eixos/atualizar/{id}', 'EixoController@update')->name('admin.eixos.atualizar');
-    Route::get('eixos/apagar/{id}', 'EixoController@destroy')->name('admin.eixos.apagar'); 
-    
-    
-    /* QUESTION */ 
-    Route::get('question/', 'QuestionController@index')->name('question.index');
-    Route::get('question/criar/', 'QuestionController@create')->name('admin.question.criar');
-    Route::post('question/criar/', 'QuestionController@store')->name('admin.question.store');
+        Route::get('{id}/editar', 'QuestionController@edit')->name('admin.question.editar');
+        Route::post('atualizar/{id}', 'QuestionController@update')->name('admin.question.atualizar');
+        Route::get('apagar/{id}', 'QuestionController@destroy')->name('admin.question.apagar'); 
 
-    Route::get('question/{id}/editar', 'QuestionController@edit')->name('admin.question.editar');
-    Route::post('question/atualizar/{id}', 'QuestionController@update')->name('admin.question.atualizar');
-    Route::get('question/apagar/{id}', 'QuestionController@destroy')->name('admin.question.apagar');  
-    
-    
-    /* ANWSER */ 
-    Route::get('answer/', 'AnswerController@index')->name('answer.index');
-    Route::get('answer/criar/', 'AnswerController@create')->name('admin.answer.criar');
-    Route::post('answer/criar/', 'AnswerController@store')->name('admin.answer.store');
+        Route::prefix('{id}/opcoes')->group(function () {
+            /* OPTIONS */ 
+            Route::get('', 'OptionController@index')->name('options.index');
+            Route::get('criar/', 'OptionController@create')->name('options.criar');
+            Route::post('', 'OptionController@store')->name('options.store');
+            
+            Route::get('{id}', 'OptionController@edit')->name('options.edit');
+            Route::put('{id}', 'OptionController@update')->name('options.update');
+            Route::delete('{id}', 'OptionController@delete')->name('options.delete');
+            
 
-    Route::get('answer/{id}/editar', 'AnswerController@edit')->name('admin.answer.editar');
-    Route::post('answer/atualizar/{id}', 'AnswerController@update')->name('admin.answer.atualizar');
-    Route::get('answer/apagar/{id}', 'AnswerController@destroy')->name('admin.answer.apagar');   
+            
+        });
+    });
+
+    
+     
+    
+    
+       
   });

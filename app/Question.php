@@ -9,7 +9,7 @@ class Question extends Authenticatable
 {
     use Notifiable;
 
-    public function episodios() {
+    public function episodio() {
         return $this->belongsTo('App\Episodio');
     }
 
@@ -23,7 +23,7 @@ class Question extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'id_bimestre', 'pergunta', 'answer1', 'answer2', 'answer3', 'answer4'
+        'id', 'id_episodio', 'description', 'img_url'
     ];
 
     /**

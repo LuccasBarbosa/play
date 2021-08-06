@@ -13,6 +13,12 @@
             <label for="nome" class="form-label">Nome</label>
             <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome do Personagem">
         </div>
+
+        <div class="mb-3">
+            <label for="texto" class="form-label">Texto</label>
+            <textarea name="texto" class="form-control" id="texto" placeholder="Texto"></textarea>
+        </div>
+
         <div class="mb-3">
             <label for="foto" class="form-label">Foto</label>
             <input type="file" class="form-control" id="foto" name="foto">

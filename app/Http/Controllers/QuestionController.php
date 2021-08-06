@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Auth;
-use App\Admin;
+
 use App\Episodio;
 use App\Question;
-use App\Answer;
-use Builder;
-use Date;
+use Validator;
+
 
 class QuestionController extends Controller
 {
@@ -41,8 +41,10 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $episodio = Episodio::all();
-        return view('admin.question.criar', compact('episodio'));   
+         $question = new Question();
+         $episodio = Episodio::all();
+
+         return view('admin.question.criar', compact(['question','episodio']));
     }
 
     /**
@@ -55,16 +57,34 @@ class QuestionController extends Controller
     {
 
 
-        $quiz = new Question;
-        $quiz->id_bimestre = $request->id_bimestre;
-        $quiz->question = $request->question;
-       
-        
+        $rules = [
+            'id_episodio' => 'required',
+            'description' => 'required | min:3 | max:200',
+        ];
 
-        $quiz->save();
 
-        
-        return redirect()->route('admin.question.criar');
+        $messages = [ 
+            'id_episodio.required' => 'O campo espisódio deve ser preenchido',
+            'description.required' => 'O campo descrição deve ser preenchido',
+            'description.min' => 'O campo texto deve ter no mínimo 3 caracteres',
+            'description.max' => 'O campo texto deve ter no máximo 200 caracteres',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if($validator->fails()){
+            return back()->withErrors($validator)->withInput();
+        }
+
+
+        $question = new Question;
+        $question->id_episodio = $request->id_episodio;
+        $question->description = $request->description;
+
+        $question->save();
+
+
+        return redirect()->route('question.index');
         
 
     }
@@ -86,18 +106,17 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        $question = Question::find($id); 
-        $answer   = Answer::all(); 
+        $question = Question::find($id);
+        $episodio = Episodio::all();
 
-        
-        if (isset($question)) {
-            
-            return view('admin.question.editar', compact(['question', 'answer']));
+        if($question){
+            return view('admin.question.editar', compact(['question','episodio']));
         }
 
-        return view('admin.question.editar');
+        return view('admin.question.index');
+
 
     }
 
@@ -110,25 +129,34 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $question = Question::find($id); 
+        $rules = [
+            'id_episodio' => 'required',
+            'description' => 'required | min:3 | max:200',
+        ];
 
-       
-        if (isset($question)) {
-            
-            $question->question = $request->input('question');
-            
-            $question->save();
 
-        } 
+        $messages = [ 
+            'id_episodio.required' => 'O campo espisódio deve ser preenchido',
+            'description.required' => 'O campo descrição deve ser preenchido',
+            'description.min' => 'O campo texto deve ter no mínimo 3 caracteres',
+            'description.max' => 'O campo texto deve ter no máximo 200 caracteres',
+        ];
 
-        return redirect()
-                    ->route('admin.dashboard')
-                    ->with('success', 'Admin atualizada com sucesso!');
+        $validator = Validator::make($request->all(), $rules, $messages);
 
-        // Redireciona de volta com uma mensagem de erro
-        return redirect()
-                    ->back()
-                    ->with('error', 'Falha ao atualizar');  
+        if($validator->fails()){
+            return back()->withErrors($validator)->withInput();
+        }
+
+
+        $question = Question::find($id);
+        $question->id_episodio = $request->id_episodio;
+        $question->description = $request->description;
+
+        $question->save();
+
+
+        return redirect()->route('question.index');
     }
 
     /**
@@ -139,7 +167,12 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        
+        $question = Question::find($id);
+        $question->delete();
+
+        return redirect()->route('question.index');
+
+
     }
 
     
