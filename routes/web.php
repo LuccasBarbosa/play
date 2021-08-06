@@ -83,7 +83,7 @@ Route::prefix('admin')->group(function () {
         Route::post('atualizar/{id}', 'QuestionController@update')->name('admin.question.atualizar');
         Route::get('apagar/{id}', 'QuestionController@destroy')->name('admin.question.apagar'); 
 
-        Route::prefix('{id}/opcoes')->group(function () {
+        Route::prefix('{id_question}/opcoes')->group(function () {
             /* OPTIONS */ 
             Route::get('', 'OptionController@index')->name('options.index');
             Route::get('criar/', 'OptionController@create')->name('options.criar');

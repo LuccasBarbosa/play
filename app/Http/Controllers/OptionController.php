@@ -25,7 +25,7 @@ class OptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($id_question)
     {
  
         $options = Option::where('id', $id)->get();
@@ -40,11 +40,12 @@ class OptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($id_question)
     {
         
         $option = new Option;
-        $option->id = $id;
+        $option->id_question = $id_question;
+
         return view('admin.opcoes.criar', compact(['option']));   
     }
 
@@ -58,17 +59,16 @@ class OptionController extends Controller
     {
 
 
-        $answer = new Answer;
-        $answer->id_bimestre = $request->id_bimestre;
-        $answer->id_question = $request->id_question;
-        $answer->answer = $request->answer;
-        $answer->valor = $request->valor;
+        $option = new Option;
+        $option->id_question = $request->id_question;
+        $option->description = $request->description;
+        $option->correct = $request->correct;
        
 
-        $answer->save();
+        $option->save();
 
         
-        return redirect()->route('admin.answer.criar');
+        return redirect()->route('admin.option.criar');
         
 
     }

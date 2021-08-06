@@ -131,38 +131,26 @@ a:hover{
 
     .zoom{
 
-        .serie{
+        position: relative;
+
+
+        
+        p{
+            margin: 0;
+        }
+     
+
+        .info-serie{
             position: absolute;
-            bottom: 25px;
+            bottom: 20px;
             left: 35px;
             color: #fff;
-            font-size: 1rem;
+            z-index: 9;
             display: none;
-            
+        
         }
 
-        .episodio-count{
-            position: absolute;
-            bottom: 0px;
-            left: 35px;
-            color: #fff;
-            font-size: 1rem;
-            display: none;
-        }
-
-        :hover{
-
-            // transform: scale(1.1);
-            // transition: 0.5s;
-
-            img{
-                filter: brightness(0.5);
-            }
-
-            .serie, .episodio-count{
-                display: block;
-            }
-        }
+        
 
         
 
@@ -178,6 +166,31 @@ a:hover{
 
     
  
+}
+
+#home .zoom:hover{
+    transform: scale(1.07);
+    transition: 0.5s;
+    color: #fff;
+
+}
+
+
+#home .zoom:hover .info-serie{   
+     display: block;
+     z-index: 99;
+     
+}
+
+#home .zoom:hover img{   
+    filter: brightness(0.5);
+    transition: 0.8s;
+
+     
+}
+
+#home .zoom img{   
+    border-radius: 20px;     
 }
 
 
@@ -232,7 +245,7 @@ a:hover{
         margin-bottom: 30px;
     
         img{
-            width: 200px;
+            width: auto;
             height: 146px;
             border-radius: 16px;
             border: 1px solid rgba(0, 0, 0, 0.3);

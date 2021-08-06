@@ -54,7 +54,25 @@
 
     <hr>
 
-    <h3>Episódios</h3>
+    <h3 class="title mb-4">Episódios</h3>
+
+    <div class="row">
+        @foreach ($episodio as $e)
+        <div class="col-md-3">
+            
+            <a href="{{ url("../episodio/{$e->id}") }}">
+                <img src="{{ url("storage/{$e->foto}") }}" alt="" class="img-fluid">
+                <h1 class="title">{{$e->nome}}</h1>
+                <p>{{$e->texto}}</p>
+            </a>
+           
+        </div>
+        @endforeach
+    </div>
+
+    <hr>
+
+    <h3 class="title mb-4">Quiz</h3>
 
     <div class="row">
         @foreach ($episodio as $e)

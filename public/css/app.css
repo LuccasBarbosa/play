@@ -121,38 +121,51 @@ a:hover {
   transition: 0.5s;
 }
 
-#home .zoom .serie {
+#home .zoom {
+  position: relative;
+}
+
+#home .zoom p {
+  margin: 0;
+}
+
+#home .zoom .info-serie {
   position: absolute;
-  bottom: 25px;
+  bottom: 20px;
   left: 35px;
   color: #fff;
-  font-size: 1rem;
+  z-index: 9;
   display: none;
-}
-
-#home .zoom .episodio-count {
-  position: absolute;
-  bottom: 0px;
-  left: 35px;
-  color: #fff;
-  font-size: 1rem;
-  display: none;
-}
-
-#home .zoom :hover img {
-  -webkit-filter: brightness(0.5);
-          filter: brightness(0.5);
-}
-
-#home .zoom :hover .serie,
-#home .zoom :hover .episodio-count {
-  display: block;
 }
 
 #home .title {
   font-size: 1.6rem;
   font-weight: 100;
   margin: 1em 0;
+}
+
+#home .zoom:hover {
+  -webkit-transform: scale(1.07);
+          transform: scale(1.07);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: #fff;
+}
+
+#home .zoom:hover .info-serie {
+  display: block;
+  z-index: 99;
+}
+
+#home .zoom:hover img {
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+#home .zoom img {
+  border-radius: 20px;
 }
 
 .voltar a {
@@ -197,7 +210,7 @@ a:hover {
 }
 
 #personagem .box-img img {
-  width: 200px;
+  width: auto;
   height: 146px;
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.3);

@@ -19,7 +19,7 @@ class Option extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'id_bimestre', 'id_question', 'answer1', 'answer2', 'answer3','answer4',
+        'id', 'id_question', 'description', 'correct'
     ];
 
     /**

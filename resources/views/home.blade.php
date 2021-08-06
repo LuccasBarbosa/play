@@ -32,10 +32,18 @@
             <div class="row mb-20">
                 @foreach ($serie as $s)         
                     <div class="col-md-3 zoom">
-                        <a href="{{ url("../serie/{$s->id}") }}" >
-                            <img src="{{ url("storage/{$s->capa}") }}" alt="" class="img-fluid">
+
+                        <div class="info-serie">
                             <p class="serie">1º Série</p>
                             <p class="episodio-count">8 episódios</p>
+                            <p class="title-eixos-desenvolvimento">Eixos de desenvolvimento</p>
+                            <p class="eixos-desenvolvimento">{{$s->eixos}}</p>
+                        </div>
+
+                        <a href="{{ url("../serie/{$s->id}") }}" >
+
+                            <img src="{{ url("storage/{$s->capa}") }}" alt="" class="img-fluid">
+                            
                         </a>
                     </div>
                 @endforeach
