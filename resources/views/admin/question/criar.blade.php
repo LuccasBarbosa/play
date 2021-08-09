@@ -4,7 +4,7 @@
 <div class="container dashboard">
     
     
-    <h1>Criar Pergunta</h1>
+    <h1 class="title m-0 mt-4">Criar Pergunta</h1>
 
     <form class="form-horizontal" method="POST" action="{{ route('admin.question.store') }}">
         {{ csrf_field() }}
@@ -19,6 +19,13 @@
             </ul>
         </div>
         @endif
+
+        <select name="id_serie" class="form-control my-4">
+            <option value="#">Escolha a Série</option>
+            @foreach ($serie as $s)
+                <option value="{{$s->id}}">{{$s->serie}}</option>
+            @endforeach
+        </select>
 
         <select name="id_episodio" class="form-control my-4">
             <option value="#">Escolha o Episódio</option>

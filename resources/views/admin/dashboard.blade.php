@@ -21,6 +21,11 @@
             <a class="" href="{{ route('admin.episodio.criar') }}">
                 <i class="fa fa-circle" aria-hidden="true"></i>
                 Episódio
+            </a>   
+
+            <a class="" href="{{ route('admin.question.criar') }}">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                Questões
             </a>           
 
             {{-- <a class="" href="{{ route('admin.question.criar') }}">

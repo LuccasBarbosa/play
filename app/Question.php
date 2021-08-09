@@ -23,7 +23,7 @@ class Question extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'id_episodio', 'description', 'img_url'
+        'id', 'id_episodio', 'id_serie','description', 'img_url'
     ];
 
     /**

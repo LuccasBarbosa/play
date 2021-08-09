@@ -18,6 +18,10 @@ class CreateQuestionsTable extends Migration
           $table->increments('id');
           $table->integer('id_episodio')->unsigned();
           $table->foreign('id_episodio')->references('id')->on('episodios')->onDelete('cascade');
+
+          $table->integer('id_serie')->unsigned();
+          $table->foreign('id_serie')->references('id')->on('series')->onDelete('cascade');
+          
           $table->text('description');          
           $table->string('img_url')->nullable();         
           $table->timestamps();  

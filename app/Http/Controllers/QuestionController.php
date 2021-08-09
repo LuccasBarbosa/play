@@ -9,6 +9,7 @@ use Auth;
 
 use App\Episodio;
 use App\Question;
+use App\Serie;
 use Validator;
 
 
@@ -43,8 +44,9 @@ class QuestionController extends Controller
     {
          $question = new Question();
          $episodio = Episodio::all();
+         $serie = Serie::all();
 
-         return view('admin.question.criar', compact(['question','episodio']));
+         return view('admin.question.criar', compact(['question','episodio','serie']));
     }
 
     /**
@@ -79,6 +81,7 @@ class QuestionController extends Controller
 
         $question = new Question;
         $question->id_episodio = $request->id_episodio;
+        $question->id_serie = $request->id_serie;
         $question->description = $request->description;
 
         $question->save();
@@ -151,6 +154,7 @@ class QuestionController extends Controller
 
         $question = Question::find($id);
         $question->id_episodio = $request->id_episodio;
+        $question->id_serie = $request->id_serie;
         $question->description = $request->description;
 
         $question->save();
