@@ -135,7 +135,7 @@ class OptionController extends Controller
         $options->save();
 
 
-        return redirect()->route('options.index',['id_question' => $options->id_question]);
+        return redirect()->route('options.index', ['id_question' => $options->id_question]);
     }
 
     /**

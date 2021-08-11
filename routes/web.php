@@ -91,7 +91,7 @@ Route::prefix('admin')->group(function () {
             Route::post('', 'OptionController@store')->name('options.store');
             
             Route::get('{id}/edit', 'OptionController@edit')->name('options.edit');
-            Route::post('{id}', 'OptionController@update')->name('options.update');
+            Route::put('{id}', 'OptionController@update')->name('options.update');
             Route::delete('{id}', 'OptionController@destroy')->name('options.destroy');
              
         });
