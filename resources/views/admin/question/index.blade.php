@@ -36,6 +36,7 @@
                                 <td>{{$q->id_episodio}} bimestre</td>
                                 <td>
                                         <div class="btn-group">
+                                            <a href="{{route('options.index', $q->id)}}" class="btn btn-success mr-2">Gerenciar Respostas</a>
                                             <a href="{{route('admin.question.editar', $q->id)}}" class="btn btn-primary mr-2">Editar</a>
                                             <a href="{{route('admin.question.apagar', $q->id)}}" class="btn btn-danger">Excluir</a>
                                         </div>

@@ -9,8 +9,7 @@ use App\Admin;
 use App\Episodio;
 use App\Question;
 use App\Option;
-use Builder;
-use Date;
+use Validator;
 
 class OptionController extends Controller
 {
@@ -28,9 +27,10 @@ class OptionController extends Controller
     public function index($id_question)
     {
  
-        $options = Option::where('id', $id)->get();
+        $options = Option::where('id_question', $id_question)->get();
+        $id_question = $id_question;
 
-        return view('admin.opcoes.index', compact('options'));
+        return view('admin.options.index', compact(['options', 'id_question']));
 
         
     }
@@ -43,10 +43,11 @@ class OptionController extends Controller
     public function create($id_question)
     {
         
-        $option = new Option;
-        $option->id_question = $id_question;
+        $options = new Option;
+        $options->id_question = $id_question;
 
-        return view('admin.opcoes.criar', compact(['option']));   
+
+        return view('admin.options.create', compact(['options']));   
     }
 
     /**
@@ -55,21 +56,20 @@ class OptionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id_question)
     {
 
 
-        $option = new Option;
-        $option->id_question = $request->id_question;
-        $option->description = $request->description;
-        $option->correct = $request->correct;
-       
+        $options = new Option;
+        $options->id_question = $request->id_question;
+        $options->description = $request->description;
+        $options->correct = ($request->correct == 'S');
 
-        $option->save();
+        $options->save();
 
-        
-        return redirect()->route('admin.option.criar');
-        
+
+        return redirect()->route('options.index', ['id_question' => $options->id_question]);
+  
 
     }
 
@@ -90,9 +90,11 @@ class OptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_question, $id)
     {
-        
+        $options = Option::findOrFail($id);
+
+        return view('admin.options.edit', compact(['options']));  
 
     }
 
@@ -103,9 +105,37 @@ class OptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_question, $id)
     {
-        
+        $rules = [
+            'id_question' => 'required',
+            'description' => 'required | min:3 | max:200',
+        ];
+
+
+        $messages = [ 
+            'id_question.required' => 'O campo espisódio deve ser preenchido',
+            'description.required' => 'O campo descrição deve ser preenchido',
+            'description.min' => 'O campo texto deve ter no mínimo 3 caracteres',
+            'description.max' => 'O campo texto deve ter no máximo 200 caracteres',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if($validator->fails()){
+            return back()->withErrors($validator)->withInput();
+        }
+
+
+        $options = Option::findOrFail($id);
+        $options->id_question = $request->id_question;
+        $options->description = $request->description;
+        $options->correct = ($request->correct == 'S');
+
+        $options->save();
+
+
+        return redirect()->route('options.index',['id_question' => $options->id_question]);
     }
 
     /**
@@ -114,9 +144,13 @@ class OptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_question, $id)
     {
-        
+        $options = Option::findOrFail($id);
+        $options->delete();
+
+
+        return redirect()->route('options.index', ['id_question' => $options->id_question]);
     }
 
     

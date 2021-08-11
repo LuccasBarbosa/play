@@ -4,12 +4,12 @@
 <div class="container dashboard">
     
     
-    <h1>Criar Opcoes</h1>
+    <h1>Editar Opção</h1>
 
-    {{$option}}
+
+    
+
 </div>
-
-
 
 
 

@@ -83,24 +83,19 @@ Route::prefix('admin')->group(function () {
         Route::post('atualizar/{id}', 'QuestionController@update')->name('admin.question.atualizar');
         Route::get('apagar/{id}', 'QuestionController@destroy')->name('admin.question.apagar'); 
 
-        Route::prefix('{id_question}/opcoes')->group(function () {
+        
+        Route::prefix('{id_question}/options')->group(function () {
             /* OPTIONS */ 
             Route::get('', 'OptionController@index')->name('options.index');
-            Route::get('criar/', 'OptionController@create')->name('options.criar');
+            Route::get('create/', 'OptionController@create')->name('options.create');
             Route::post('', 'OptionController@store')->name('options.store');
             
-            Route::get('{id}', 'OptionController@edit')->name('options.edit');
-            Route::put('{id}', 'OptionController@update')->name('options.update');
-            Route::delete('{id}', 'OptionController@delete')->name('options.delete');
-            
-
-            
+            Route::get('{id}/edit', 'OptionController@edit')->name('options.edit');
+            Route::post('{id}', 'OptionController@update')->name('options.update');
+            Route::delete('{id}', 'OptionController@destroy')->name('options.destroy');
+             
         });
     });
 
-    
-     
-    
-    
-       
+   
   });

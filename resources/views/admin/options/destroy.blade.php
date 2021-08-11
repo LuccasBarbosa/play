@@ -4,12 +4,12 @@
 <div class="container dashboard">
     
     
-    <h1>Opcoes</h1>
+    <h1>Excluir Opção</h1>
+
 
     
+
 </div>
-
-
 
 
 
